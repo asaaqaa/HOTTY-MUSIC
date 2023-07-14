@@ -155,7 +155,7 @@ class Userbot(Client):
         if config.STRING5:
             await self.five.start()
             try:
-                await self.five.join_chat("InsaneSupportChat")
+                await self.five.join_chat("UPSC_SSC_TEAM")
             except:
                 pass
             assistants.append(5)
