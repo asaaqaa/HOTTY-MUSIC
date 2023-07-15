@@ -1,44 +1,56 @@
 from typing import Union
+
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+
 import config
-from InsaneMusic import app
 
 
-def start_pannel(_):
+def start_pannel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
     buttons = [
         [
             InlineKeyboardButton(
-                text=_["S_B_5"],
-                url=f"https://t.me/{app.username}?startgroup=true",
+                text=" Aᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ⛦",
+                url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
             )
         ],
         [
             InlineKeyboardButton(
-                text=_["S_B_8"],
+                text=" Hᴇʟᴩ ",
                 callback_data="settings_back_helper",
             ),
-            InlineKeyboardButton(text=_["S_B_2"], callback_data="settings_helper"),
+            InlineKeyboardButton(
+                text=" Sᴇᴛᴛɪɴɢs ", callback_data="settings_helper"
+            ),
         ],
-    ]
+     ]
     return buttons
 
 
 def private_panel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
     buttons = [
         [
-            InlineKeyboardButton(text=_["S_B_8"], callback_data="settings_back_helper"),
+            InlineKeyboardButton(
+                text="+ Aᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ +",
+                url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
+            )
         ],
         [
             InlineKeyboardButton(
-                text=_["S_B_5"], url=f"https://t.me/{BOT_USERNAME}?startgroup=true"
+                text="Hᴇʟᴩ", callback_data="settings_back_helper"
+            )
+        ],
+        [
+            InlineKeyboardButton(
+                text="Sᴜᴩᴩᴏʀᴛ", url=config.SUPPORT_GROUP
             ),
+            InlineKeyboardButton(
+                text="Oᴡɴᴇʀ", user_id=OWNER
+            )
         ],
         [
-            InlineKeyboardButton(text=_["S_B_7"], user_id=OWNER),
-            InlineKeyboardButton(text=_["S_B_4"], url=config.SUPPORT_CHANNEL),
+            InlineKeyboardButton(
+                text="[❄️] Iɴᴛʀᴏᴅᴜᴄᴛɪᴏɴ [❄️]", callback_data="gib_source"
+            )
         ],
-        [
-            InlineKeyboardButton(text=_["S_B_6"], callback_data="gib_source"),
-        ],
-    ]
+     ]
     return buttons
