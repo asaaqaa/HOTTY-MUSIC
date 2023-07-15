@@ -326,7 +326,11 @@ close_keyboard = InlineKeyboardMarkup(
 def queue_markup(_, videoid, chat_id):
     buttons = [
         [
+            InlineKeyboardButton(text="Uᴘᴅᴀᴛᴇs", url=f"https://t.me/AARU_IZ_BACK"),
             InlineKeyboardButton(
+                text="Oᴡɴᴇʀ", url=f"https://t.me/DEVIL_IZ_BACK"
+            )
+            , InlineKeyboardButton(
                 text="• Cʟᴏsᴇ •", callback_data=f"ADMIN CloseA|{chat_id}"
             )
         ],
