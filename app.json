@@ -15,12 +15,12 @@
     "env": {
       "API_ID": {
         "description": "Get this value from https://my.telegram.org",
-        "value": "",
+        "value": "29067523",
         "required": true
       },
       "API_HASH": {
         "description": "Get this value from https://my.telegram.org",
-        "value": "",
+        "value": "9e8cecad63937651d17a264ec16ad017",
         "required": true
       },
       "AUTO_LEAVING_ASSISTANT": {
@@ -40,12 +40,12 @@
       },
       "MUSIC_BOT_NAME": {
         "description": "A name for your Music Bot. You can use special characters bot ko jhaat farak ni padega",
-        "value": "乛���𝙉𝙀🕊⃝🦋⁪⁬𝙈𝙐𝙎𝙄𝘾⁬",
+        "value": "⏤͟͞•𝙉𝙞𝙆𝙆𝙐 ✘𝙈𝙐𝙎𝙞𝘾˚ ͟͟͞͞➳❥",
         "required": true
       },
       "OWNER_ID": {
         "description": "The user id(s) of user(s) whom you would like to add as a OWNER. Multiple values shall be seperated with a space.",
-        "value": "5303133436",
+        "value": "6200809034",
         "required": true
       },
       "STRING_SESSION": {
@@ -55,12 +55,12 @@
       },
       "PING_IMG_URL": {
         "description": "The pic which will be shown when you give the /ping cmd to the bot.",
-        "value": "",
+        "value": "https://telegra.ph/file/59612e4efbc10b6cf7ff5.jpg",
         "required": false
       },
       "START_IMG_URL": {
         "description": "The pic which will be shown when you /start the bot in private.",
-        "value": "",
+        "value": "https://telegra.ph/file/0a6fcec726a4e88acabde.jpg",
         "required": false
       },
       "HEROKU_API_KEY": {
@@ -75,7 +75,7 @@
       },
       "LOG_GROUP_ID": {
         "description": "Your Log Group ID, add your bot and promote as an admin with full rights!. Channel ki id mat daal dena bsdk.",
-        "value": "",
+        "value": "-1001849749003",
         "required": true
       },
       "UPSTREAM_REPO": {
