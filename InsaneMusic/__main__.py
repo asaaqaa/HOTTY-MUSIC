@@ -60,4 +60,4 @@ async def init():
 
 if __name__ == "__main__":
     loop.run_until_complete(init())
-    LOGGER("InsaneMusic").info("Stopping Music Bot, Bhakk Bhosdike (Gaand Maraa Tu)")
+    LOGGER("InsaneMusic").info("Stopping Music Bot")
