@@ -7,7 +7,8 @@ import textwrap
 
 import aiofiles
 import aiohttp
-from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
+from PIL import (Image, ImageDraw, ImageEnhance, ImageFilter,
+                 ImageFont, ImageOps)
 from youtubesearchpython.__future__ import VideosSearch
 
 from config import MUSIC_BOT_NAME, YOUTUBE_IMG_URL
@@ -53,16 +54,18 @@ async def gen_thumb(videoid):
         async with aiohttp.ClientSession() as session:
             async with session.get(thumbnail) as resp:
                 if resp.status == 200:
-                    f = await aiofiles.open(f"cache/thumb{videoid}.png", mode="wb")
+                    f = await aiofiles.open(
+                        f"cache/thumb{videoid}.png", mode="wb"
+                    )
                     await f.write(await resp.read())
                     await f.close()
 
         youtube = Image.open(f"cache/thumb{videoid}.png")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
-        background = image2.filter(filter=ImageFilter.BoxBlur(50))
+        background = image2.filter(filter=ImageFilter.BoxBlur(30))
         enhancer = ImageEnhance.Brightness(background)
-        background = enhancer.enhance(0.9)
+        background = enhancer.enhance(0.6)
         Xcenter = youtube.width / 2
         Ycenter = youtube.height / 2
         x1 = Xcenter - 250
@@ -71,24 +74,24 @@ async def gen_thumb(videoid):
         y2 = Ycenter + 250
         logo = youtube.crop((x1, y1, x2, y2))
         logo.thumbnail((520, 520), Image.ANTIALIAS)
-        logo = ImageOps.expand(logo, border=17, fill="pink")
+        logo = ImageOps.expand(logo, border=15, fill="white")
         background.paste(logo, (50, 100))
         draw = ImageDraw.Draw(background)
         font = ImageFont.truetype("assets/font2.ttf", 40)
         font2 = ImageFont.truetype("assets/font2.ttf", 70)
         arial = ImageFont.truetype("assets/font2.ttf", 30)
-        name_font = ImageFont.truetype("assets/font.ttf", 40)
+        name_font = ImageFont.truetype("assets/font.ttf", 30)
         para = textwrap.wrap(title, width=32)
         j = 0
         draw.text(
-            (6, 6), f"Powered By:- © Insane & ® ROCKS", fill="Yellow", font=name_font
+            (5, 5), f"{MUSIC_BOT_NAME}", fill="white", font=name_font
         )
         draw.text(
             (600, 150),
-            f"By Insane",
+            "NOW PLAYING",
             fill="white",
             stroke_width=2,
-            stroke_fill="yellow",
+            stroke_fill="white",
             font=font2,
         )
         for line in para:
@@ -116,26 +119,20 @@ async def gen_thumb(videoid):
         draw.text(
             (600, 450),
             f"Views : {views[:23]}",
-            fill="white",
-            stroke_width=1,
-            stroke_fill="white",
-            font=font,
+            (255, 255, 255),
+            font=arial,
         )
         draw.text(
             (600, 500),
             f"Duration : {duration[:23]} Mins",
-            fill="white",
-            stroke_width=1,
-            stroke_fill="white",
-            font=font,
+            (255, 255, 255),
+            font=arial,
         )
         draw.text(
             (600, 550),
-            f"Owner : Dr Asad Ali",
-            fill="white",
-            stroke_width=1,
-            stroke_fill="white",
-            font=font,
+            f"Channel : {channel}",
+            (255, 255, 255),
+            font=arial,
         )
         try:
             os.remove(f"cache/thumb{videoid}.png")
